@@ -6,22 +6,38 @@
 
 #include <stdio.h>
 
-int main () {
+int main()
+{
 
-int idade;
-int ano;
-int temp;
+    int ano;
+    int mes;
+    int dia;
 
-printf("IDADE EM DIAS!\n\n");
+    int num;
 
-printf("Informe tua idade para mim converter para anos, meses e dias: ");
-scanf("%d", &idade);
+    printf("IDADE EM DIAS!\n\n");
 
-temp = idade;
-ano = idade/12;
-temp = temp%12;
+    printf("Informe tua idade para mim converter para anos, meses e dias: ");
+    scanf("%d", &num);
 
+    if (num >= 365)
+    {
+        ano = num / 365;
+        num = num % 365;
+    }
+    if (num >= 30)
+    {
+        mes = num / 30;
+        num = num % 30;
+    }
+    
+    dia = num;
 
+    printf("%d ano(s)\n", ano);
+    printf("%d mes(es)\n", mes);
+    printf("%d dia(s)\n\n", dia);
+
+    printf("Fim do algoritmo.\n");
 
     return 0;
-} 
+}

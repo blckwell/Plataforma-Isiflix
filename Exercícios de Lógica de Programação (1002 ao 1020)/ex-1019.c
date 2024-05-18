@@ -13,17 +13,25 @@ int main()
     int minuto = 0;
     int segundo = 0;
     int temp;
+
     printf("CONVERSAO DE TEMPO\n\n");
 
     printf("Informe um valor em segundos para ser convertido para o formato apropriado: ");
     scanf("%d", &segundo);
 
-    temp = segundo;
-    minuto = segundo/60;
-    temp = temp%60;
-    
-    hora = minuto/60;
-    
+    if (segundo >= 3600)
+    {
+        temp = segundo % 3600;
+        hora = segundo / 3600;
+        segundo = temp;
+    }
+    if (segundo >= 60)
+    {
+        temp = segundo % 60;
+        minuto = segundo / 60;
+        segundo = temp;
+    }
+
     printf("%d(horas)/%d(minutos)/%d(segundos)\n\n", hora, minuto, segundo);
 
     printf("Fim do algoritmo.\n");
