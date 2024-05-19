@@ -50,4 +50,6 @@ int main()
     }
 
     printf("Fim do algoritmo.\n");
+
+    return 0;
 }
