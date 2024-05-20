@@ -15,7 +15,6 @@ int main()
 
     int duracaoH;
     int duracaoM;
-    int minConvertidoHora;
 
     printf("TEMPO DE JOGO COM MINUTOS!\n\n");
 
@@ -34,36 +33,33 @@ int main()
     printf("Informe o minuto final do jogo: ");
     scanf("%d", &minutoFinal);
 
-    duracaoH = horaInicial - horaFinal;
-    duracaoM = minutoInicial - minutoFinal;
-    if (duracaoM < 0)
+    duracaoH = horaFinal - horaInicial;
+    duracaoM = minutoFinal - minutoInicial;
+
+    duracaoH = duracaoH * 60;
+
+    if(duracaoH == 0 && duracaoM == 0) {
+       duracaoH = 24; 
+    }
+
+    else if (duracaoM < 0 && duracaoH >= 60)
     {
-        duracaoM = -1 * duracaoM;
-    } else {
-        duracaoH = duracaoH * 60;
-        duracaoH = duracaoH + duracaoM;
-        duracaoM = duracaoH;
-        if(duracaoH >= 60) {
-            duracaoH = duracaoH/60;
+        duracaoM = duracaoM + duracaoH;
+        duracaoH = duracaoM;
+        if (duracaoH >= 60)
+        {
+            duracaoH = duracaoH / 60;
         } else {
             duracaoH = 0;
         }
-    }
-    if (duracaoM >= 60)
-    {
-        duracaoM = duracaoM % 60;
-        minConvertidoHora = duracaoM / 60;
-    }
+    } else {
+        duracaoH = duracaoH/60;
+    } 
 
-    if (duracaoH < 0)
-    {
-        duracaoH = -1 * duracaoH;
-        duracaoH += minConvertidoHora;
-    }
-    else
-    {
-        duracaoH = 24 - duracaoH;
-        duracaoH += minConvertidoHora;
+    if(duracaoH < 0) {
+        duracaoH = -1*duracaoH;
+    } if(duracaoM < 0) {
+        duracaoM = -1*duracaoM;
     }
 
     printf("O jogo durou aproximadamente %d hora(s) e o %d minuto(s) .. \n\n", duracaoH, duracaoM);
