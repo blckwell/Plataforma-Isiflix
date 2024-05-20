@@ -28,25 +28,25 @@ int main()
 
     if (valor >= 0.00 && valor <= 2000.00)
     {
-        printf("A pessoa está insenta do Imposto de Renda.\n\n");
+        printf("A pessoa esta isento do Imposto de Renda.\n\n");
     }
     else if (valor >= 2000.01 && valor <= 3000.00)
     {
         resto = valor - 2000.00;
-        valor = resto + (resto * 0.8);
+        valor = resto * 0.8;
 
         printf("A pessoa devera contribuir com o Imposto de Renda com o valor de: %.2f\n\n", valor);
     }
     else if (valor >= 3000.01 && valor <= 4500.00)
     {
-        resto = valor - 1000.00;
-        valor = (1000.00 * 0.8) + (resto * 0.18);
+        valor = valor - 3000.00;
+        valor = ((1000 * 8)/100) + ((valor * 18)/100);
         printf("A pessoa devera contribuir com o Imposto de Renda com o valor de: %.2f\n\n", valor);
     }
     else
     {
-        resto = valor - 2000.00;
-        valor = (1000 * 0.8) + (1500 * 0.18) + (resto * 28);
+        valor = valor - 4500.00;
+        valor = ((1000 * 8)/100) + ((1500 * 18)/100) + ((valor * 28)/100);
         printf("A pessoa devera contribuir com o Imposto de Renda com o valor de: %.2f\n\n", valor);
     }
 
