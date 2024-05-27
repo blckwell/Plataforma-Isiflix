@@ -7,9 +7,8 @@
 int main()
 {
 
-    int valorInicial = 0;
-    int valorFinal = 0;
-    int resultado;
+    int X = 0;
+    int i = 0;
 
     printf("NUMEROS IMPARES!\n\n");
 
@@ -18,31 +17,29 @@ int main()
     do
     {
 
-        printf("Valor inicial: ");
-        scanf("%d", &valorInicial);
+        printf("Informe o valor: ");
+        scanf("%d", &X);
         printf("\n");
 
-        printf("Valor Final: ");
-        scanf("%d", &valorFinal);
-        printf("\n");
-
-        if (valorInicial <= 0 || valorInicial >= 1000 || valorFinal <= 0 || valorFinal > 1000)
+        if (X > 1000 || X < 0)
         {
-            printf("Os valores estao dentro dos parametros.\n");
+            printf("O numero informado nao esta dentro do range!\n");
+            printf("Por favor, digite um numero maior que 0 e menor ou igual a 1000: ");
+            printf("\n");
         }
-        else
-        {
-            printf("Um dos valores nao esta dentro dos parametros (x >= 0 e x <= 1000)\n");
-        }
-    } while (valorInicial <= 0 || valorInicial >= 1000 || valorFinal <= 0 || valorFinal > 1000);
 
-    resultado = valorFinal - valorInicial;
+    } while (X > 1000 || X < 0);
 
-    for (int i = 0; i < resultado; i++)
+    while (i <= X)
     {
         if (i % 2 == 1)
         {
             printf("%d\n", i);
+            ++i;
+        }
+        else
+        {
+            ++i;
         }
     }
 
