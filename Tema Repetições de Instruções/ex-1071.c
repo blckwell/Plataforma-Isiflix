@@ -8,6 +8,8 @@ int main()
 
     int X;
     int Y;
+    int i = 0;
+    int j = 0;
     int soma = 0;
     int somaX = 0;
     int somaY = 0;
@@ -22,68 +24,74 @@ int main()
     scanf("%d", &Y);
     printf("\n");
 
-    while (X != 0)
+    do
     {
-        if (X > 0)
+        if (i < X)
         {
-            if (X % 2 == 1)
+            if (i % 2 == 1)
             {
-                somaX += X;
-                --X;
+                somaX += i;
+                ++i;
             }
             else
             {
-                somaX += 0;
-                --X;
+                ++i;
             }
         }
-        else if (X < 0)
+        else if (i > X)
         {
-            if (X % 2 == 1)
+            X *= -1;
+            somaX += i;
+            ++i;
+            if (i % 2 == 1)
             {
-                somaX += X;
-                ++X;
+                somaX += i;
             }
             else
             {
-                somaX += 0;
-                ++X;
+                ++i;
             }
+            somaX *= -1;
         }
-    }
+    } while (i != 0);
 
-    while (Y != 0)
+    do
     {
-        if (Y > 0)""
+        if (j < Y)
         {
-            if (Y % 2 == 1)
+            if (j % 2 == 1)
             {
-                somaY += Y;
-                --Y;
+                somaY += j;
+                ++j;
             }
             else
             {
-                somaY += 0;
-                --Y;
+                ++j;
             }
         }
-        else if (Y < 0)
+        else if (j > Y)
         {
-            if (Y % 2 == 1)
+            Y *= -1;
+            if (j % 2 == 1)
             {
-                somaY += Y;
-                ++Y;
+                somaY += j;
+                ++j;
             }
             else
             {
-                somaY += 0;
-                ++Y;
+                ++j;
             }
+            somaY *= -1;
         }
-    }
+    } while (j != 0);
+
+    soma = somaX + somaY;
 
     printf("%d\n", somaX);
     printf("%d\n", somaY);
+    printf("%d\n\n", soma);
+
+    printf("Fim do algoritmo.\n");
 
     return 0;
 }
